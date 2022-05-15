@@ -1,5 +1,5 @@
-from display import ui
-import imap
+from .display import ui
+from .imap import ImapConnection
 from os import path, remove, listdir
 
 if __name__ == '__main__':
@@ -7,7 +7,7 @@ if __name__ == '__main__':
     print('\n--- PyMailOrganizer --- Python command line mail organizer ---\n')
 
     # Connect to server and fetch emails
-    imapConnection = imap.ImapConnection()
+    imapConnection = ImapConnection()
     msgs_df = imapConnection.get_emails_from_folder('inbox')
 
     # Render user interface
