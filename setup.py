@@ -10,7 +10,7 @@ README = (HOME_DIR / "README.md").read_text()
 # This call to setup() does all the work
 setup(
     name="pymailorganizer",
-    version="0.5.0",
+    version="0.5.2",
     description="Python command line mail organizer",
     long_description=README,
     long_description_content_type="text/markdown",
@@ -41,7 +41,7 @@ setup(
     ],
     entry_points={
         "console_scripts": [
-            "pymailorganizer=pymailorganizer.__main__:main",
+            "pymailorganizer=pymailorganizer:main",
         ]
     },
 )
