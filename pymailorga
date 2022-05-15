@@ -1,0 +1,2 @@
+. ~/PythonProjects/PyMailOrganizer/venv/bin/activate
+python3 ~/PythonProjects/PyMailOrganizer/main.py

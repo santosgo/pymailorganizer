@@ -1,0 +1,12 @@
+halo==0.0.31
+matplotlib==3.5.1
+ntlm-auth==1.5.0
+numpy==1.22.3
+pandas==1.4.1
+pytest==7.1.1
+requests==2.27.1
+scipy==1.8.0
+seaborn==0.11.2
+tabulate==0.8.9
+tqdm==4.64.0
+urllib3==1.26.8
