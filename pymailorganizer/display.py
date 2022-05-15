@@ -162,6 +162,7 @@ class ui:
         print(f'l - List last 20 mails')
         print(f'l[number] - List last [number] mails')
         print(f'r - Reload mails from server')
+        print(f's - Set number of loaded mails from server')
         print(f'[number] - Show selected mail on console')
         print(f'[number] as html - Show selected mail on browser')
         print('\n')

@@ -1,4 +1,4 @@
-from imap import imap
+from pymailorganizer import imap
 import pandas as pd
 
 

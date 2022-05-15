@@ -64,7 +64,7 @@ class ImapConnection:
 
     def __get_settings(self):
         """
-        Gets the maximum number of loaded emails from the settings.json file
+        Gets the settings from the settings.json file
 
         Raises:
             FileNotFoundError: if the settings.json file is not found in the parent path of the program
@@ -74,7 +74,6 @@ class ImapConnection:
             with open(settings_path, 'r') as f:
                 json_settings = f.read()
             self.__settings = json.loads(json_settings)
-            self.max_loaded_mails = self.__settings['max_default_loaded_mails']
         else:
             raise FileNotFoundError("File settings.json not found")
 
@@ -91,6 +90,7 @@ class ImapConnection:
         Returns:
             dataframe: dataframe containing all emails
         """
+        self.max_loaded_mails = self.__settings['max_default_loaded_mails']
 
         print(f'Fetching {self.max_loaded_mails} emails...\n')
         msgs = self.__get_messages_from_folder(folder)
@@ -156,7 +156,7 @@ class ImapConnection:
             From = self.__get_header_component(email, 'From').split('<')[0].split(',')[0].replace('"', '').strip()
             date = self.__get_header_component(email, 'date')
             body = self.__get_body(email)
-            if self.__settings['max_default_loaded_mails']:
+            if self.__settings['remove_urls']:
                 body = self.__remove_urls(body)
             else:
                 pass

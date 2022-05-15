@@ -1,10 +1,10 @@
 from display import ui
-from imap import imap
+import imap
 from os import path, remove, listdir
 
 if __name__ == '__main__':
     # Welcome message
-    print('\n--- PyMailOrga --- Python command line mail organizer ---\n')
+    print('\n--- PyMailOrganizer --- Python command line mail organizer ---\n')
 
     # Connect to server and fetch emails
     imapConnection = imap.ImapConnection()
@@ -14,7 +14,7 @@ if __name__ == '__main__':
     user_interface = ui(msgs_df, imapConnection)
 
     # Clean up before terminating
-    current_dir = path.dirname(__file__)
+    current_dir = path.dirname(path.abspath(__file__))
     files = listdir(current_dir)
 
     for file in files:
@@ -22,4 +22,4 @@ if __name__ == '__main__':
             remove(path.join(current_dir, file))
 
     # Termination message
-    print('Thank you for using PyMailOrga!')
+    print('\nThank you for using PyMailOrganizer!\n')
