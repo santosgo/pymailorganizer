@@ -2,7 +2,10 @@ from .display import ui
 from .imap import ImapConnection
 from os import path, remove, listdir
 
-if __name__ == '__main__':
+
+def shell():
+    """Starts command line app
+    """
     # Welcome message
     print('\n--- PyMailOrganizer --- Python command line mail organizer ---\n')
 
@@ -23,3 +26,7 @@ if __name__ == '__main__':
 
     # Termination message
     print('\nThank you for using PyMailOrganizer!\n')
+
+
+if __name__ == '__main__':
+    shell()

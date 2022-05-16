@@ -95,8 +95,12 @@ class ui:
 
     def __quit(self):
         # close the connection and logout
-        self.account.close()
-        self.account.logout()
+        try:
+            self.account.close()
+            self.account.logout()
+        except ConnectionResetError:
+            # Connection already closed by peer anyway due to timeout
+            pass
 
 
     def __delete_by_subject(self):

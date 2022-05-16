@@ -22,6 +22,8 @@ class ImapConnection:
         """
 
         self.__get_settings()
+        self.max_loaded_mails = self.__settings['max_default_loaded_mails']
+
         self.__creds = self.__get_creds()
 
         if self.__creds['email_user'][-10:] == '@gmail.com':
@@ -69,7 +71,8 @@ class ImapConnection:
         Raises:
             FileNotFoundError: if the settings.json file is not found in the parent path of the program
         """
-        settings_path = path.dirname(__file__) + '/../settings.json'
+        current_dir = path.dirname(path.abspath(__file__))
+        settings_path = current_dir + '/settings.json'
         if path.exists(settings_path):
             with open(settings_path, 'r') as f:
                 json_settings = f.read()
@@ -90,8 +93,7 @@ class ImapConnection:
         Returns:
             dataframe: dataframe containing all emails
         """
-        self.max_loaded_mails = self.__settings['max_default_loaded_mails']
-
+        
         print(f'Fetching {self.max_loaded_mails} emails...\n')
         msgs = self.__get_messages_from_folder(folder)
         df = self.__msgs_to_df(msgs)
